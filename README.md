@@ -1,5 +1,4 @@
-# My First Ruby Ever
-
+# Ruby Tic Tac Toe
 >  Welcome to our Ruby Tic Tac Toe Game. First run the script bin/main. Follow along with the promp to play the game. First player will need to select x or o. Then the board will print between players untill a winer is found. Have fun and enjoy =).
 
 ![screenshot](./screenshot.png)
