@@ -12,4 +12,4 @@ class Board
   end
 end
 
-puts Board.new.display
+# puts Board.new.display

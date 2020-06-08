@@ -1,2 +1,56 @@
 #!/usr/bin/env ruby
-puts 'Hello world!'
+require_relative '../lib/board.rb'
+
+puts "-----------------------"
+puts 'Welcome to Tic Tac Toe!'
+puts "-----------------------"
+puts
+
+# a method into which we can pass user input
+def input_indice(user_input)
+    user_input.to_i - 1
+end
+
+# the index in the `@board` array that the player chooses (X or Y)
+def move(index, player = "X")
+    @board[index] = player
+end
+
+# method will be responsible for evaluating the user's desired move.
+def position?(location)
+    @board[location] != " " && @board[location] != ""
+end
+
+# that accepts a position to check  if the move is correct
+def move?(index)
+    index.between?(0,8) && !position?(index)
+end
+
+# Receive the user's input
+def turn
+ puts "Please enter 1-9:"
+  input = gets.strip
+  index = input_indice(input)
+   if move?(index)
+    make_move(index, player)
+     display_board
+   else
+     turn
+   end
+end
+
+# returns the number of turns
+def palyer_count
+    @board.count{|cell| cell == "X" || cell == "O"}
+end
+
+# method to determine if it is `"X"`'s or `"O"`'s turn
+def player
+    player_count.even? ? "X" : "O"
+end
+
+main = Board.new
+
+main.display
+
+
