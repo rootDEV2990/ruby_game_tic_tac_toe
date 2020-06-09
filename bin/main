@@ -49,8 +49,61 @@ def player
     player_count.even? ? "X" : "O"
 end
 
-main = Board.new
+player_1 = ''
+player_2 = ''
 
-main.display
+
+class Game < Board
+    def initialize
+        @player_input = ''
+        @player_1 = ''
+        @player_2 = ''
+        @player_1_moves = []
+        @player_2_moves = []
+    end
+
+    def player_asign
+        p "player_1 select your weapon... X or O."
+        @player_input = gets.chop.upcase.to_s
+        @player_a = @player_input
+        if @player_a == 'X' 
+            @player_a = 'X'
+            @player_2 = 'O'
+            p "Player_1 will be #{@player_a} and Player_2 will be #{@player_2}"
+        else
+            @player_1 = 'O'
+            @player_2= 'X'
+            p "Player_1 will be #{@player_1} and Player_2 will be #{@player_2}"
+        end
+    end
+
+    #variables not commin in need to rewrite inizializer variables with results from player asign method
+    def player_move
+        turn = @player_1
+        9.times do
+            #turns not changing players initializer player one is nil
+            if turn == @player_1
+                Board.new.display
+                p "Player One Select Cell to re-write (1-9)"
+                @player_1_moves << gets.chomp.to_i
+                turn = @player_2
+            else
+                Board.new.display
+                p "Player Two Select Cell to re-write (1-9)"
+                @player_2_moves << gets.chomp.to_i
+                turn = @player_1
+            end
+            p @player_1_moves
+            p @player_2_moves
+        end    
+    end
+end
+
+Game.new.player_asign
+
+Game.new.player_move
+
+
+
 
 
