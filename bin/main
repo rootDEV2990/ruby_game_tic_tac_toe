@@ -49,18 +49,37 @@ def player
     player_count.even? ? "X" : "O"
 end
 
+
+
+  
+def game_board(query)
+    board = query
+    puts ' ---+---+--- '
+    puts "| #{board[0]} | #{board[1]} | #{board[2]} |"
+    puts ' ---+---+--- '
+    puts "| #{board[3]} | #{board[4]} | #{board[5]} |"
+    puts ' ---+---+--- '
+    puts "| #{board[6]} | #{board[7]} | #{board[8]} |"
+    puts ' ---+---+--- '
+  end
+
+  
+
+
+
+
 player_1 = ''
 player_2 = ''
 
 
-class Game < Board
-    def initialize
+
+    
         @player_input = ''
         @player_1 = ''
         @player_2 = ''
         @player_1_moves = []
         @player_2_moves = []
-    end
+    
 
     def player_asign
         p "player_1 select your weapon... X or O."
@@ -69,39 +88,40 @@ class Game < Board
         if @player_a == 'X' 
             @player_a = 'X'
             @player_2 = 'O'
-            p "Player_1 will be #{@player_a} and Player_2 will be #{@player_2}"
+            "Player_1 will be #{@player_a} and Player_2 will be #{@player_2}"
         else
             @player_1 = 'O'
             @player_2= 'X'
-            p "Player_1 will be #{@player_1} and Player_2 will be #{@player_2}"
+            "Player_1 will be #{@player_1} and Player_2 will be #{@player_2}"
         end
     end
 
+    puts player_asign
+
     #variables not commin in need to rewrite inizializer variables with results from player asign method
     def player_move
+        table = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         turn = @player_1
         9.times do
             #turns not changing players initializer player one is nil
             if turn == @player_1
-                Board.new.display
+                puts game_board(table)
                 p "Player One Select Cell to re-write (1-9)"
                 @player_1_moves << gets.chomp.to_i
                 turn = @player_2
             else
-                Board.new.display
+                puts game_board(table)
                 p "Player Two Select Cell to re-write (1-9)"
                 @player_2_moves << gets.chomp.to_i
                 turn = @player_1
             end
-            p @player_1_moves
-            p @player_2_moves
+            p "player 1 moves#{@player_1_moves}"
+            p "player 1 moves#{@player_2_moves}"
         end    
     end
-end
+    puts player_move
 
-Game.new.player_asign
 
-Game.new.player_move
 
 
 
