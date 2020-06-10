@@ -1,10 +1,20 @@
 #!/usr/bin/env ruby
 require_relative '../lib/board.rb'
+require_relative '../lib/game.rb'
+require_relative '../lib/player.rb'
 
-puts "-----------------------"
-puts 'Welcome to Tic Tac Toe!'
-puts "-----------------------"
+puts "-----------------------".center(50)
+puts 'Welcome to Tic Tac Toe!'.center(50)
+puts "-----------------------".center(50)
 puts
+
+puts 'Create by Josue Abraham and MiguelEnciso'.center(50)
+puts
+
+puts 'Please enter the name of player 1'.center(50)
+player_1 = gets.chomp
+puts 'Please enter the name of player 2'.center(50)
+player_2 = gets.chomp
 
 # a method into which we can pass user input
 def input_indice(user_input)
