@@ -27,6 +27,8 @@ end
 @p2 = ''
 
 def player_asign
+  player_1 = String.new
+  player_2 = String.new
   puts 'player_1 put your name'
   player_1 = gets.chop
   puts 'player_2 put your name'
