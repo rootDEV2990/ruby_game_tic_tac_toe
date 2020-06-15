@@ -48,25 +48,23 @@ def player_move
   loop do
     index = 0
     # turns not changing players initializer player one is nil
+    puts game_board(board)
     if turn == 'X'
-      puts game_board(board)
       p "#{@p1} Select Cell to re-write (1-9)"
       input = gets.chomp.to_i
       player_1_moves << input
       index = (input - 1)
       board[index].replace 'X'
       turn = 'O'
-      end_game += 1
     else
-      puts game_board(board)
       p "#{@p2} Select Cell to re-write (1-9)"
       input = gets.chomp.to_i
       player_2_moves << input
       index = (input - 1)
       board[index].replace 'O'
       turn = 'X'
-      end_game += 1
     end
+    end_game += 1
     break if end_game == 10
   end
 end
