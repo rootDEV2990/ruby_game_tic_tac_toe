@@ -45,8 +45,8 @@ def player_move
   turn = 'X'
   end_game = 0
   board = %w[1 2 3 4 5 6 7 8 9]
+  index = 0
   loop do
-    index = 0
     # turns not changing players initializer player one is nil
     puts game_board(board)
     if turn == 'X'
