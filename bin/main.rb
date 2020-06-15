@@ -28,9 +28,9 @@ end
 
 def player_asign
   puts 'player_1 put your name'
-  player_1 = gets.chop.upcase
+  player_1 = gets.chop
   puts 'player_2 put your name'
-  player_2 = gets.chop.upcase
+  player_2 = gets.chop
   @p1 = player_1
   @p2 = player_2
   "#{player_1} will be Xs and #{player_2} will be Os"
