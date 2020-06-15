@@ -27,15 +27,13 @@ end
 @p2 = ''
 
 def player_asign
-  player_1 = String.new
-  player_2 = String.new
   puts 'player_1 put your name'
-  player_1 = gets.chop
+  player1 = gets.chop
   puts 'player_2 put your name'
-  player_2 = gets.chop
-  @p1 = player_1
-  @p2 = player_2
-  "#{player_1} will be Xs and #{player_2} will be Os"
+  player2 = gets.chop
+  @p1 = player1
+  @p2 = player2
+  "#{player1} will be Xs and #{player2} will be Os"
 end
 
 puts player_asign
