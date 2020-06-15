@@ -13,72 +13,64 @@ puts
 puts 'Create by Josue Abraham and MiguelEnciso'.center(50)
 puts
 
-puts 'Please enter the name of player 1'.center(50)
-player_1 = gets.chomp
-puts 'Please enter the name of player 2'.center(50)
-player_2 = gets.chomp
-
-  
-def game_board(query)
-    board = query
-    puts ""
-    puts ' ---+---+--- '.center(50)
-    puts "| #{board[0]} | #{board[1]} | #{board[2]} |".center(50)
-    puts ' ---+---+--- '.center(50)
-    puts "| #{board[3]} | #{board[4]} | #{board[5]} |".center(50)
-    puts ' ---+---+--- '.center(50)
-    puts "| #{board[6]} | #{board[7]} | #{board[8]} |".center(50)
-    puts ' ---+---+--- '.center(50)
-    puts ""
+def game_board(board)
+  puts ' ---+---+--- '.center(40)
+  puts "| #{board[0]} | #{board[1]} | #{board[2]} |".center(40)
+  puts ' ---+---+--- '.center(40)
+  puts "| #{board[3]} | #{board[4]} | #{board[5]} |".center(40)
+  puts ' ---+---+--- '.center(40)
+  puts "| #{board[6]} | #{board[7]} | #{board[8]} |".center(40)
+  puts ' ---+---+--- '.center(40)
 end
 
-player_1 = ''
-player_2 = ''
+@p1 = ''
+@p2 = ''
 
-@player_input = ''
-@player_1 = ''
-@player_2 = ''
-@player_1_moves = []
-@player_2_moves = []
-    
 def player_asign
-    p "player_1 select your weapon... X or O."
-    @player_input = gets.chop.upcase.to_s
-    @player_a = @player_input
-    if @player_a == 'X' 
-        @player_a = 'X'
-        @player_2 = 'O'
-        "Player_1 will be #{@player_a} and Player_2 will be #{@player_2}"
-    else
-        @player_1 = 'O'
-        @player_2= 'X'
-        "Player_1 will be #{@player_1} and Player_2 will be #{@player_2}"
-    end
+  puts 'player_1 put your name'
+  player_1 = gets.chop.upcase.to_s
+  puts 'player_2 put your name'
+  player_2 = gets.chop.upcase.to_s
+  @p1 = player_1
+  @p2 = player_2
+  "#{player_1} will be Xs and #{player_2} will be Os"
 end
 
 puts player_asign
 
-#variables not commin in need to rewrite inizializer variables with results from player asign method
+# variables not commin in need to rewrite inizializer variables with results from player asign method
 def player_move
-    table = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    turn = @player_1
-    9.times do
-    #turns not changing players initializer player one is nil
-      if turn == @player_1
-        puts game_board(table)
-        p "Player One Select Cell to re-write (1-9)"
-        @player_1_moves << gets.chomp.to_i
-        turn = @player_2
-      else
-        puts game_board(table)
-        p "Player Two Select Cell to re-write (1-9)"
-        @player_2_moves << gets.chomp.to_i
-        turn = @player_1
-      end
-        p "player 1 moves#{@player_1_moves}"
-        p "player 1 moves#{@player_2_moves}"
-    end    
+  player_1_moves = []
+  player_2_moves = []
+  turn = 'X'
+  end_game = 0
+  board = %w[1 2 3 4 5 6 7 8 9]
+  loop do
+    index = 0
+    # turns not changing players initializer player one is nil
+    if turn == 'X'
+      puts game_board(board)
+      p "#{@p1} Select Cell to re-write (1-9)"
+      input = gets.chomp.to_i
+      player_1_moves << input
+      index = (input - 1)
+      board[index].replace 'X'
+      turn = 'O'
+      end_game += 1
+    else
+      puts game_board(board)
+      p "#{@p2} Select Cell to re-write (1-9)"
+      input = gets.chomp.to_i
+      player_2_moves << input
+      index = (input - 1)
+      board[index].replace 'O'
+      turn = 'X'
+      end_game += 1
+    end
+    break if end_game == 10
+  end
 end
+
 puts player_move
 
 
