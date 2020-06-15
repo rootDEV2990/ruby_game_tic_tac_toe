@@ -4,10 +4,10 @@ require_relative '../lib/game.rb'
 require_relative '../lib/player.rb'
 
 puts
-puts "*******************************".center(50)
-puts "*          Welcome            *".center(50)
-puts "*      To Tic Tac Toe         *".center(50)
-puts "*******************************".center(50)
+puts '*******************************'.center(50)
+puts '*          Welcome            *'.center(50)
+puts '*      To Tic Tac Toe         *'.center(50)
+puts '*******************************'.center(50)
 puts
 
 puts 'Create by Josue Abraham and MiguelEnciso'.center(50)
@@ -73,7 +73,6 @@ end
 
 puts player_move
 
-
 #---------------------------
 
 # def initialize(board = nil)
@@ -82,110 +81,102 @@ puts player_move
 
 # Define your WIN_COMBINATIONS constant
 WIN_CONDITIONS = [
-  [0,1,2],  
-  [3,4,5],  
-  [6,7,8],  
-  [2,4,6],  
-  [0,4,8],  
-  [0,3,6],  
-  [1,4,7],  
-  [2,5,8]  
-]
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [2, 4, 6],
+  [0, 4, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8]
+].freeze
 
 # a method into which we can pass user input
 def input_indice(user_input)
-    user_input.to_i - 1
+  user_input.to_i - 1
 end
 
 # the index in the `@board` array that the player chooses (X or O)
-def move(index, player = "X")
-    @board[index] = player
+def move(index, player = 'X')
+  @board[index] = player
 end
-
 
 # method will be responsible for evaluating the user's desired move.
 def position?(location)
-    @board[location] != " " && @board[location] != ""
+  @board[location] != ' ' && @board[location] != ''
 end
 
 # that accepts a position to check  if the move is correct
 def move?(index)
-    index.between?(0,8) && !position?(index)
+  index.between?(0, 8) && !position?(index)
 end
 
 # Receive the user's input
 def turn
- puts "Please enter 1-9:"
+  puts 'Please enter 1-9:'
   input = gets.strip
   index = input_indice(input)
-   if move?(index)
+  if move?(index)
     make_move(index, player)
-     display_board
-   else
-     turn
-   end
+    display_board
+  else
+    turn
+  end
 end
 
 # returns the number of turns
 def player_count
-    @board.count{|cell| cell == "X" || cell == "O"}
+  @board.count { |cell| cell == 'X' || cell == 'O' }
 end
 
 # method to determine if it is `"X"`'s or `"O"`'s turn
 def player
-    player_count.even? ? "X" : "O"
+  player_count.even? ? 'X' : 'O'
 end
 
 def won?
-    if @board.all? {|index| index == " "  }
-      false
-    else
-        WIN_CONDITIONS.each do |win_condition|
-
-        if win_condition.all? {|cell| @board[cell] == "X"} or win_condition.all? {|cell| @board[cell] == "O"}
-          return win_condition
-        end
-
-       end
-       return false
+  if @board.all? { |index| index == ' ' }
+    false
+  else
+    WIN_CONDITIONS.each do |win_condition|
+      if win_condition.all? { |cell| @board[cell] == 'X' } or win_condition.all? { |cell| @board[cell] == 'O' }
+        return win_condition
+      end
     end
+    false
+  end
  end
 
- #full? return true if board contains only X or O
- def full?
-   @board.all? {|position| position == "X" or position == "O"}
- end
+# full? return true if board contains only X or O
+def full?
+  @board.all? { |position| position == 'X' or position == 'O' }
+end
 
- def  draw?
-   if won? == false and full?
-     return true
-   else
-     return false
-   end
- end
- #over? return true if the game is draw or if is won
- def over?
-    if draw? == true or won? != false
-      return true
-    end
- end
+def draw?
+  if won? == false and full?
+    true
+  else
+    false
+  end
+end
 
- def winner
-   if won? != false
-     @board[won?[0]]
-   end
- end
+# over? return true if the game is draw or if is won
+def over?
+  return true if draw? == true or won? != false
+end
 
- #play
- def play_game
-   #input = gets
-   until over? == true
-     turn
-   end
+def winner
+  @board[won?[0]] if won? != false
+end
 
-   if winner == "X" or winner == "O"
-     puts "Congratulations #{winner}!"
-   else
-     puts "Cat's Game!"
-   end
- end
+# play
+def play_game
+  # input = gets
+  turn until over? == true
+
+  if winner == 'X' or winner == 'O'
+    puts "Congratulations #{winner}!"
+  else
+    puts "Cat's Game!"
+  end
+end
