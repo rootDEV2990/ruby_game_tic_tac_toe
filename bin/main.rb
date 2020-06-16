@@ -43,7 +43,7 @@ def player_move
   player_1_moves = []
   player_2_moves = []
   turn = 'X'
-  end_game = 0
+  end_game = 1
   board = %w[1 2 3 4 5 6 7 8 9]
   index = 0
   loop do
@@ -66,6 +66,7 @@ def player_move
     end
     end_game += 1
     break if end_game == 10
+    # puts "End"
   end
 end
 
