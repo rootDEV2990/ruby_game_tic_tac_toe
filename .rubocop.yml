@@ -1,5 +1,6 @@
 AllCops:
   Exclude:
+    - ".rubocop.yml"
     - "README.md"
     - "Guardfile"
     - "Rakefile"
