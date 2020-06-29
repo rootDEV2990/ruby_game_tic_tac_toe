@@ -43,8 +43,6 @@ Style/MultipleComparison:
   Enabled: false
 Lint/UselessAssignment:
   Enabled: false
-Style/ClassVars:
-  Enabled: false
 Layout/HashAlignment:
   EnforcedColonStyle: key
 Layout/ExtraSpacing:
