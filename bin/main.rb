@@ -42,18 +42,21 @@ class Tictactoe
   end
 
   def replay
-    choice = nil
-    until choice == 'Y' or choice == 'N'
-      puts 'Would you like to play another round? (Y/N): '
-      choice = gets.chomp.upcase
-    end
-    case choice
-    when 'Y'
-      start_game
-    when 'N'
-      puts 'Thank you for playing, we hope to see you soon!'
-      puts
-      puts '************************************************'
+    loop do
+      choice = nil
+      until choice == 'Y' or choice == 'N'
+        puts 'Would you like to play another round? (Y/N): '
+        choice = gets.chomp.upcase
+      end
+      if choice == 'Y'
+        start_game
+        choice = nil
+      elsif choice == 'N'
+        puts 'Thank you for playing, we hope to see you soon!'
+        puts
+        puts '************************************************'
+      end
+      break if choice == 'N'
     end
   end
 end
