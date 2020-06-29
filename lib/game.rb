@@ -21,7 +21,7 @@ class Game
     @board = board
 
     @count_turn = 1
-    @turn_1 = ''
+    @turn1 = ''
     @winner = ''
     play
   end
@@ -33,8 +33,8 @@ class Game
   end
 
   def who_turn
-    @turn_1 = [@player1.name, @player2.name].sample
-    puts "#{@turn_1} will be Xs!\n\n\n\n"
+    @turn1 = [@player1.name, @player2.name].sample
+    puts "#{@turn1} will be Xs!\n\n\n\n"
   end
 
   def player_asign
@@ -44,9 +44,9 @@ class Game
 
   def player_move
     until draw? || @winner != ''
-      if @turn_1 == @player1.name
+      if @turn1 == @player1.name
         @count_turn.even? ? play_game(@player2) : play_game(@player1)
-      elsif @turn_1 == @player2.name
+      elsif @turn1 == @player2.name
         @count_turn.even? ? play_game(@player1) : play_game(@player2)
       end
     end

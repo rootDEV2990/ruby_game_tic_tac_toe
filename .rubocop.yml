@@ -41,7 +41,9 @@ Style/GuardClause:
   Enabled: false
 Style/MultipleComparison:
   Enabled: false
-  Lint/UselessAssignment:
+Lint/UselessAssignment:
+  Enabled: false
+Style/ClassVars:
   Enabled: false
 Layout/HashAlignment:
   EnforcedColonStyle: key
