@@ -2,18 +2,8 @@ require_relative '../lib/board.rb'
 require_relative '../lib/player.rb'
 
 class Game
-  attr_accessor :player1, :player2, :turn, :board
+  attr_accessor :player1, :player2, :turn, :board, :winning_combinations
 
-  @@winning_combinations = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [2, 4, 6],
-    [0, 4, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8]
-  ]
 
   def initialize(player1, player2, board)
     @player1 = player1
@@ -90,7 +80,17 @@ class Game
   end
 
   def check_who_won(player)
-    @@winning_combinations.each do |triplet|
+    @winning_combinations = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [2, 4, 6],
+      [0, 4, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8]
+    ]
+    @winning_combinations.each do |triplet|
       @winner = player.name if triplet.all? { |a| @board.board[a] == player.data }
     end
   end
