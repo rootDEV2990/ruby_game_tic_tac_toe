@@ -20,4 +20,4 @@ class Board
   def position_taken?(position)
     @board[position] == 'X' || @board[position] == 'O'
   end
-      end
+end
