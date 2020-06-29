@@ -4,7 +4,7 @@ require_relative '../lib/game.rb'
 require_relative '../lib/player.rb'
 
 class Tictactoe
-  attr_accessor :name_1, :name_2, :base
+  attr_accessor :name1, :name2, :base
 
   def initialize
     welcome
@@ -22,10 +22,10 @@ class Tictactoe
     puts 'Create by Josue Abraham and MiguelEnciso'.center(50)
     puts
     puts 'player_1 put your name'
-    @name_1 = gets.chomp
+    @name1 = gets.chomp
     puts ' '
     puts 'player_2 put your name'
-    @name_2 = gets.chomp
+    @name2 = gets.chomp
     puts ' '
   end
 
@@ -36,9 +36,9 @@ class Tictactoe
 
   def start_game
     board = Board.new
-    player_1 = Player.new(@name_1)
-    player_2 = Player.new(@name_2)
-    game = Game.new(player_1, player_2, board)
+    player1 = Player.new(@name1)
+    player2 = Player.new(@name2)
+    game = Game.new(player1, player2, board)
   end
 
   def replay
