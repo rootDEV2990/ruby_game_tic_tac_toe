@@ -1,10 +1,11 @@
 AllCops:
   Exclude:
     - "README.md"
-    - "tests.rb"
     - "Guardfile"
     - "Rakefile"
   DisplayCopNames: true
+UselessAssignment: 
+  Enabled: false
 Layout/LineLength:
   Max: 125
 Metrics/MethodLength:
@@ -35,6 +36,12 @@ Style/DefWithParentheses:
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 Style/CaseEquality:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/MultipleComparison:
+  Enabled: false
+  Lint/UselessAssignment:
   Enabled: false
 Layout/HashAlignment:
   EnforcedColonStyle: key
