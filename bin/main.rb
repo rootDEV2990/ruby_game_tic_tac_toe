@@ -43,7 +43,7 @@ class Tictactoe
   def replay
     loop do
       choice = nil
-      until !choice.nil?
+      until choice.is_a? String
         puts 'Would you like to play another round? (Y/N): '
         choice = gets.chomp.upcase
       end
