@@ -59,9 +59,6 @@ class Tictactoe
       break if choice == 'N'
     end
   end
-
-  
-  
 end
 
 class Game
@@ -161,6 +158,5 @@ class Game
     input.positive? && input < 10 && !@board.position_taken?(input - 1)
   end
 end
-
 
 Tictactoe.new
