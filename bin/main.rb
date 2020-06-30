@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 # rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
 require_relative '../lib/board.rb'
 require_relative '../lib/player.rb'
 
@@ -161,3 +162,4 @@ end
 
 Tictactoe.new
 # rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
