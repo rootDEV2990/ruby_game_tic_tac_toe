@@ -128,6 +128,7 @@ class Game
   def who_win(player)
     check_who_won(player)
     return unless @winner == player.name
+
     print "#{player.name} won!"
     puts "\u{1f600}"
   end
