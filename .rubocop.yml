@@ -67,5 +67,3 @@ Style/For:
   Enabled: false
 Lint/ShadowingOuterLocalVariable:
   Enabled: false
-
-
