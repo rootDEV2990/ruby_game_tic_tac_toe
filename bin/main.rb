@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require_relative '../lib/board.rb'
-require_relative '../lib/game.rb'
 require_relative '../lib/player.rb'
 
 class Tictactoe
@@ -38,13 +37,13 @@ class Tictactoe
     board = Board.new
     player1 = Player.new(@name1)
     player2 = Player.new(@name2)
-    game = Game.new(player1, player2, board)
+    Game.new(player1, player2, board)
   end
 
   def replay
     loop do
       choice = nil
-      until choice == 'Y' or choice == 'N'
+      until !choice.nil?
         puts 'Would you like to play another round? (Y/N): '
         choice = gets.chomp.upcase
       end
