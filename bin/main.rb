@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# rubocop:disable Metrics/CyclomaticComplexity
 require_relative '../lib/board.rb'
 require_relative '../lib/player.rb'
 
@@ -159,3 +160,4 @@ class Game
 end
 
 Tictactoe.new
+# rubocop:enable Metrics/CyclomaticComplexity
