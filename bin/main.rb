@@ -94,7 +94,7 @@ class Game
     until draw? || @winner != ''
       if @turn1 == @player1.name
         @count_turn.even? ? play_game(@player2) : play_game(@player1)
-      elsif @turn1 == @player2.name
+      else @turn1 == @player2.name
         @count_turn.even? ? play_game(@player1) : play_game(@player2)
       end
     end
