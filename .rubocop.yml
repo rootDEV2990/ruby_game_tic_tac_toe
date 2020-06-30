@@ -1,16 +1,14 @@
 AllCops:
   Exclude:
-    - ".rubocop.yml"
-    - "README.md"
     - "Guardfile"
     - "Rakefile"
+
   DisplayCopNames: true
-UselessAssignment: 
-  Enabled: false
+
 Layout/LineLength:
-  Max: 125
+  Max: 120
 Metrics/MethodLength:
-  Max: 50
+  Max: 20
 Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
@@ -18,12 +16,8 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   ExcludedMethods: ['describe']
   Max: 30
-Metrics/ModuleLength:
-  Max: 500
-Metrics/CyclomaticComplexity:
-  Max: 20
-Metrics/PerceivedComplexity:
-  Max: 20
+
+
 Style/Documentation:
   Enabled: false
 Style/ClassAndModuleChildren:
@@ -36,14 +30,7 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
-Style/CaseEquality:
-  Enabled: false
-Style/GuardClause:
-  Enabled: false
-Style/MultipleComparison:
-  Enabled: false
-Lint/UselessAssignment:
-  Enabled: false
+
 Layout/HashAlignment:
   EnforcedColonStyle: key
 Layout/ExtraSpacing:
@@ -60,10 +47,4 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
-  Enabled: false
-Style/NegatedUnless:
-  Enabled: false
-Style/For:
-  Enabled: false
-Lint/ShadowingOuterLocalVariable:
   Enabled: false
