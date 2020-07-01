@@ -106,7 +106,7 @@ class Game
   def play_game(player)
     puts 'TicTacToe Board'.center(10)
     puts "---------------------------\n\n\n"
-    @board.game_board
+    puts @board.game_board
     puts
     puts
     puts "---------------------------\n\n\n"
