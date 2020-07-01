@@ -6,11 +6,14 @@ class Board
   end
 
   def game_board
-    puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
-    puts '-----------'
-    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
-    puts '-----------'
-    puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
+    play_board = [
+    " #{@board[0]} | #{@board[1]} | #{@board[2]} ",
+    "-----------",
+    " #{@board[3]} | #{@board[4]} | #{@board[5]} ",
+    "-----------",
+    " #{@board[6]} | #{@board[7]} | #{@board[8]} "
+    ]
+    puts play_board.join("\n") + "\n"
   end
 
   def change_index(position, index)
