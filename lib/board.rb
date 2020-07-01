@@ -13,7 +13,7 @@ class Board
     "-----------",
     " #{@board[6]} | #{@board[7]} | #{@board[8]} "
     ]
-    puts play_board.join("\n") + "\n"
+    play_board.join("\n") + "\n"
   end
 
   def change_index(position, index)
