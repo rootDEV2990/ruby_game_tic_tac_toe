@@ -1,10 +1,23 @@
 # Ruby Tic Tac Toe
 
-> Welcome to our Ruby Tic Tac Toe Game. First run the script bin/main. Follow along with the promp to play the game. First player will need to select x or o. Then the board will print between players untill a winer is found. Have fun and enjoy =).
+## Objectives
 
-![screenshot](./screenshot.png)
+1. Build a CLI Tic Tac Toe game!
+2. Encapsulate Tic Tac Toe in a `main.rb`.
 
-Additional description about the project and its features.
+## Overview
+
+We build a 2 player CLI version of Tic Tac Toe. The game play will be very similar to other versions of TicTacToe.
+
+### Your Object Oriented Tic Tac Toe
+
+We're going to be building a very well encapsulated object for Tic Tac Toe where each instance method will represent a discrete, single responsibility or functionality of a Tic Tac Toe game.
+
+We'll be following the Tic Tac Toe conventions of representing the board as an array with 9 elements where `" "` represents an empty cell in the board.
+
+We'll be getting user input via `gets` and a player will choose a position by entering 1-9. Our program will then fill out the appropriate position on the board with the player's token.
+
+We will keep track of which player's turn it is and how many turns have been played. We will check to see, at every turn, if there is a winner. If there is a winner, we'll congratulate them. If there is a tie, we will inform our players.
 
 ### Project Structure
 
@@ -13,7 +26,8 @@ Additional description about the project and its features.
 ├── bin
 │   └── main
 ├── lib
-│   └── board.rb
+    └── board.rb
+    └── player.rb
 
 ├── .rubocop.yml
 ├── .stickler.yml
@@ -23,33 +37,23 @@ Additional description about the project and its features.
 
 ## Built With
 
-- Ruby
+- Ruby, Rubocop
 
 ## Getting Started
 
-Clone directory and run with Ruby. Open terminal inside projects bin folder and type "./main" and hit enter.
+Clone directory and run with Ruby. Open terminal inside projects bin folder and type "bin/main.rb" and hit enter.
 
 ### Prerequisites
 
 Ruby installed on your computer to be able to run the script in /bin/.
 
-### Setup
+## What it does:
 
-If your using Arch you can do
-
-sudo pacman -S ruby --noconfirm
-
-to install. if your OS is diffrent check out the link bellow.
-
-https://www.ruby-lang.org/en/downloads/
-
-### Usage
-
-Form me try it out. Ruby for all ;).
-
-### Run tests
-
-Text editor, Terminal and Ruby.
+1. Ask the user for their move by specifying a position between 1-9.
+2. Receive the user's input.
+3. Translate that input into an index value.
+4. If the move is valid, make the move and display the board.
+5. If the move is invalid, ask for a new move until a valid move is received.
 
 ## Authors
 
