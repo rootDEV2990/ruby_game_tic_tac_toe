@@ -41,7 +41,11 @@ We will keep track of which player's turn it is and how many turns have been pla
 
 ## Getting Started
 
-Clone directory and run with Ruby. Open terminal inside projects bin folder and type "bin/main.rb" and hit enter.
+Clone directory $ git clone git@github.com:rootDEV2990/ruby_game_tic_tac_toe.git
+Open terminal type cd /path/to/folder and hit enter.
+Change to directory with "main.rb" file inside bin type cd bin and hit enter.
+Run "main.rb" file with ruby inside terminal, type ruby main.rb
+Enjoy the game.
 
 ### Prerequisites
 
