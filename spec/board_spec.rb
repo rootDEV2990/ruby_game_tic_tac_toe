@@ -20,13 +20,12 @@ describe Board do
 
     describe '.change_index' do
       it 'change index' do
-          input = Board.new
-          p X = input.change_index(5, "x")
-          p Y = $board
-          p input.instance_variable_get(:@board)
-          expect(X).not_to eq(Y)
-
+        input = Board.new
+        p X = input.change_index(5, 'x')
+        p Y = board
+        p input.instance_variable_get(:@board)
+        expect(X).not_to eq(Y)
       end
-  end
+    end
   end
 end

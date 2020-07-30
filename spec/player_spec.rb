@@ -8,8 +8,8 @@ RSpec.describe Player do
       expect { Player.new(input) }.to_not raise_error
     end
   end
-  it "checks player's name" do
-    input = Player.new("someone")
+  it 'checks name of players' do
+    input = Player.new('someone')
     name = input.instance_variable_get(:@name)
     expect(name).to be_a String
   end
