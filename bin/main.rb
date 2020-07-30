@@ -122,7 +122,7 @@ class Game
       input = gets.chomp.to_i
       print 'Invalid input! ' unless valid_input?(input)
       puts 'This number is out of range (1-9)' unless input.positive? && input < 10
-   p   puts 'Cell already used.' if @board.position_taken?(input - 1)
+      p puts 'Cell already used.' if @board.position_taken?(input - 1)
     end
     input - 1
   end
