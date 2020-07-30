@@ -102,6 +102,23 @@ describe Board do
             expect(inport_board.board).to eq([" ", " ", " ", " ", " ", " ", " ", " ", "o"])
         end
     end
+
+    describe '.position_taken?' do
+        # it "Check if the index contains X or O" do
+        #      $inport_board.change_index(6, "o")
+        #   p  changed_board = $inport_board.board
+        #    p   $inport_board.position_taken?(6)
+        #    p Board.position_taken?(0)
+        #    p $inport_board
+        # end
+        it 'change index 8 from " " to "o"' do
+            inport_board = Board.new
+            inport_board.change_index(8, "x")
+           p changed_board = inport_board.position_taken?(8)
+            # expect(inport_board.board).to eq([" ", " ", " ", " ", " ", " ", " ", " ", "o"])
+        end
+    end
+    
 end
 
 describe Player do
