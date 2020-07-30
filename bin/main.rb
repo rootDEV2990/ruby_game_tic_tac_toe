@@ -4,7 +4,7 @@
 require_relative '../lib/board.rb'
 require_relative '../lib/player.rb'
 
-class Tictactoe
+class Main
   attr_accessor :name1, :name2, :base
 
   def initialize
@@ -160,6 +160,6 @@ class Game
   end
 end
 
-Tictactoe.new
+Main.new
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
