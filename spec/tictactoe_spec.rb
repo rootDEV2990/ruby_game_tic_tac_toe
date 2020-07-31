@@ -1,5 +1,17 @@
+require './bin/main.rb'
 require './lib/board.rb'
 require './lib/player.rb'
+
+describe TicTacToe do 
+    it 'welcomes player' do 
+        welcome_msg = nil
+        allow(welcome_msg).to receive(:puts) 
+    end
+end
+
+
+
+
 
 describe Board do
   describe '.initialize' do
