@@ -4,3 +4,4 @@ class Player
     @name = name
   end
 end
+

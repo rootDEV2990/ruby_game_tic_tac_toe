@@ -1,17 +1,18 @@
-require './bin/main.rb'
+# require './bin/main.rb'
 require './lib/board.rb'
 require './lib/player.rb'
+require './lib/game.rb'
 
-describe TicTacToe do 
-    it 'welcomes player' do 
-        welcome_msg = nil
-        allow(welcome_msg).to receive(:puts) 
+describe Game do
+
+  describe '.who_won' do
+    it 'Checks for the winner of the game' do
+      game = Game.new('Miguel', 'Cal', ['', '', '', '', '', '', '', '', ''])
+      p game.check_who_won('Miguel')
     end
+  end
+  
 end
-
-
-
-
 
 describe Board do
   describe '.initialize' do
