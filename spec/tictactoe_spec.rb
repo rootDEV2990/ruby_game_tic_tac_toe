@@ -3,16 +3,7 @@ require './lib/board.rb'
 require './lib/player.rb'
 require './lib/game.rb'
 
-describe Game do
 
-  describe '.who_won' do
-    it 'Checks for the winner of the game' do
-      game = Game.new('Miguel', 'Cal', ['', '', '', '', '', '', '', '', ''])
-      p game.check_who_won('Miguel')
-    end
-  end
-  
-end
 
 describe Board do
   describe '.initialize' do
@@ -131,3 +122,23 @@ describe Player do
     expect(names).to eq('miguel')
   end
 end
+
+describe Game do
+
+    describe '.check_who_won' do
+      it 'Checks for the winner of the game' do
+        @name1 = 'miguel'
+        @name2 = 'cal'
+        rewrite_board = ['X','X','X','4','5','6','7','8','9']
+        
+        board = Board.new 
+        board.instance_variable_set(:@board, rewrite_board)
+        player1 = Player.new(@name1) 
+        player2 = Player.new(@name2) 
+        game = Game.new(player1, player2, board)
+        p game
+        #p game.check_who_won('Miguel')
+      end
+    end
+    
+  end
