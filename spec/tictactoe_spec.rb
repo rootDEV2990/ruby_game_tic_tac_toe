@@ -129,17 +129,29 @@ describe Game do
       it 'Checks for the winner of the game' do
         @name1 = 'miguel'
         @name2 = 'cal'
-        rewrite_board = ['X','X','X','4','5','6','7','8','9']
+        rewrite_board = ['X','X','X','O','5','6','7','8','9']
         
         board = Board.new 
-        board.instance_variable_set(:@board, rewrite_board)
+        #board.board = rewrite_board
         player1 = Player.new(@name1) 
         player2 = Player.new(@name2) 
         
         game = Game.new(player1, player2, board)
-        winning_combinations = game.check_who_won(player1)
+        winning_combinations = game.check_if_won(player1)
         p 'winning combos'
-        p winning_combinations
+        hash_board = {}
+        board.board.each_with_index do |item, index|
+          hash_board[index] = item
+        end
+        #p hash_board[3]
+        test1 = []
+        hash_board.each {|key,value| test1 << key if value == 'X'}
+        p 'winning combos for checking'
+        test2 = []
+        winning_combinations.each {|item| item.each {|item| test2 << item } }
+        p 'test2'
+        p test2
+        expect(test1).to include(0, 1, 2)
         #instance.class_veriable_set(:@winner, player1)
         
         #game.who_win(player1)

@@ -65,7 +65,7 @@ class Game
   end
 
   def who_win(player)
-    check_who_won(player)
+    check_if_won(player)
     return unless @winner == player.name
 
     print "#{player.name} won!"
@@ -76,7 +76,7 @@ class Game
     (@count_turn == @board.board.length) && (@winner == '')
   end
 
-  def check_who_won(player)
+  def check_if_won(player)
     @winning_combinations = [
       [0, 1, 2],
       [3, 4, 5],
