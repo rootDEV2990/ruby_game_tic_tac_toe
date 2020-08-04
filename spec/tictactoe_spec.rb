@@ -125,7 +125,7 @@ end
 
 describe Game do
 
-    describe '.check_who_won' do
+    describe '.who_won' do
       it 'Checks for the winner of the game' do
         @name1 = 'miguel'
         @name2 = 'cal'
@@ -135,8 +135,15 @@ describe Game do
         board.instance_variable_set(:@board, rewrite_board)
         player1 = Player.new(@name1) 
         player2 = Player.new(@name2) 
+        
         game = Game.new(player1, player2, board)
-        p game
+        winning_combinations = game.check_who_won(player1)
+        p 'winning combos'
+        p winning_combinations
+        #instance.class_veriable_set(:@winner, player1)
+        
+        #game.who_win(player1)
+       
         #p game.check_who_won('Miguel')
       end
     end

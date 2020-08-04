@@ -1,6 +1,6 @@
 
 class Game
-  attr_accessor :player1, :player2, :turn, :board, :winning_combinations
+  attr_accessor :player1, :player2, :turn, :board, :winner, :winning_combinations
 
   def initialize(player1, player2, board)
     @player1 = player1
