@@ -137,7 +137,6 @@ describe Game do
         player2 = Player.new(@name2) 
         
         game = Game.new(player1, player2, board)
-        winning_combinations = game.check_if_won(player1)
         p 'winning combos'
         hash_board = {}
         board.board.each_with_index do |item, index|
@@ -147,10 +146,13 @@ describe Game do
         test1 = []
         hash_board.each {|key,value| test1 << key if value == 'X'}
         p 'winning combos for checking'
-        test2 = []
-        winning_combinations.each {|item| item.each {|item| test2 << item } }
+        #test2 = winning_combinations.each {|item| item.each {|item| item } }
         p 'test2'
-        p test2
+        p test1
+
+        winning_combinations = game.check_if_won(player1)
+        p winning_combinations
+        test2 = winning_combinations[0]
         expect(test1).to include(0, 1, 2)
         #instance.class_veriable_set(:@winner, player1)
         
