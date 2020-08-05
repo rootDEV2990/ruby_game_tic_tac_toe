@@ -3,8 +3,6 @@ require './lib/board.rb'
 require './lib/player.rb'
 require './lib/game.rb'
 
-
-
 describe Board do
   describe '.initialize' do
     it 'produces a board with nine spaces' do
@@ -124,42 +122,33 @@ describe Player do
 end
 
 describe Game do
+  describe '.check_if_won' do
+    it 'Checks that winner var is not empty' do
+      @name1 = 'miguel'
+      @name2 = 'cal'
+      rewrite_board = %w[X X X O 5 6 7 8 9]
 
-    describe '.who_won' do
-      it 'Checks for the winner of the game' do
-        @name1 = 'miguel'
-        @name2 = 'cal'
-        rewrite_board = ['X','X','X','O','5','6','7','8','9']
-        
-        board = Board.new 
-        #board.board = rewrite_board
-        player1 = Player.new(@name1) 
-        player2 = Player.new(@name2) 
-        
-        game = Game.new(player1, player2, board)
-        p 'winning combos'
-        hash_board = {}
-        board.board.each_with_index do |item, index|
-          hash_board[index] = item
-        end
-        #p hash_board[3]
-        test1 = []
-        hash_board.each {|key,value| test1 << key if value == 'X'}
-        p 'winning combos for checking'
-        #test2 = winning_combinations.each {|item| item.each {|item| item } }
-        p 'test2'
-        p test1
-
-        winning_combinations = game.check_if_won(player1)
-        p winning_combinations
-        test2 = winning_combinations[0]
-        expect(test1).to include(0, 1, 2)
-        #instance.class_veriable_set(:@winner, player1)
-        
-        #game.who_win(player1)
-       
-        #p game.check_who_won('Miguel')
-      end
+      board = Board.new
+      board.board = rewrite_board
+      player1 = Player.new(@name1)
+      player2 = Player.new(@name2)
+      game = Game.new(player1, player2, board)
+      expect(game.check_if_won(player1)).to eql('miguel')
     end
-    
   end
+
+  describe '.draw?' do
+    it 'Checks if winner is empty and moves are full' do
+      @name1 = 'miguel'
+      @name2 = 'cal'
+      rewrite_board = %w[X O X O X X O X O]
+      board = Board.new
+      board.board = rewrite_board
+      player1 = Player.new(@name1)
+      player2 = Player.new(@name2)
+      game = Game.new(player1, player2, board)
+      game.count_turn = 9
+      expect(game.draw?).to be true
+    end
+  end
+end

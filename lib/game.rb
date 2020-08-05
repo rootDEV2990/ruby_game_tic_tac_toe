@@ -1,6 +1,5 @@
-
 class Game
-  attr_accessor :player1, :player2, :turn, :board, :winner, :winning_combinations
+  attr_accessor :player1, :player2, :turn, :board, :count_turn, :winner, :winning_combinations
 
   def initialize(player1, player2, board)
     @player1 = player1
@@ -10,12 +9,11 @@ class Game
     @count_turn = 1
     @turn1 = ''
     @winner = ''
-    play
+    player_asign
   end
 
   def play
     who_turn
-    player_asign
     player_move
   end
 
@@ -29,6 +27,8 @@ class Game
     @player2.data = 'O'
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+
   def player_move
     until draw? || @winner != ''
       if @turn1 == @player1.name
@@ -39,6 +39,8 @@ class Game
     end
     puts 'Game is a draw!' if draw?
   end
+
+  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
   def play_game(player)
     puts 'TicTacToe Board'.center(10)
@@ -90,6 +92,7 @@ class Game
     @winning_combinations.each do |triplet|
       @winner = player.name if triplet.all? { |a| @board.board[a] == player.data }
     end
+    @winner
   end
 
   def valid_input?(input)

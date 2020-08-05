@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-# rubocop:disable Metrics/CyclomaticComplexity
-# rubocop:disable Metrics/PerceivedComplexity
 require_relative '../lib/board.rb'
 require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
@@ -40,7 +38,8 @@ class Tictactoe
     board = Board.new
     player1 = Player.new(@name1)
     player2 = Player.new(@name2)
-    Game.new(player1, player2, board)
+    starting = Game.new(player1, player2, board)
+    starting.play
   end
 
   def replay
@@ -64,5 +63,3 @@ class Tictactoe
 end
 
 Tictactoe.new
-# rubocop:enable Metrics/CyclomaticComplexity
-# rubocop:enable Metrics/PerceivedComplexity
