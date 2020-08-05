@@ -1,39 +1,112 @@
-# require './lib/board.rb'
-# require './lib/player.rb'
+require './lib/board.rb'
+require './lib/player.rb'
 
-# describe Board do
-#   before do
-#     allow($stdout).to receive(:write)
-#   end
+describe Board do
+  describe '.initialize' do
+    it 'create a board with 9 spaces' do
+      inport_board = Board.new
+      expect(inport_board.board.length).to eql(9)
+    end
+  end
+  describe '.change_index' do
+    it 'change index 0 from " " to "X"' do
+      inport_board = Board.new
+      inport_board.change_index(0, 'X')
+      expect(inport_board.board).to eq(['X', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
+    end
+    it 'change index 0 from " " to "O"' do
+      inport_board = Board.new
+      inport_board.change_index(0, 'O')
+      expect(inport_board.board).to eq(['O', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
+    end
+    it 'change index 1 from " " to "X"' do
+      inport_board = Board.new
+      inport_board.change_index(1, 'X')
+      expect(inport_board.board).to eq([' ', 'X', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
+    end
+    it 'change index 1 from " " to "O"' do
+      inport_board = Board.new
+      inport_board.change_index(1, 'O')
+      expect(inport_board.board).to eq([' ', 'O', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
+    end
+    it 'change index 2 from " " to "X"' do
+      inport_board = Board.new
+      inport_board.change_index(2, 'X')
+      expect(inport_board.board).to eq([' ', ' ', 'X', ' ', ' ', ' ', ' ', ' ', ' '])
+    end
+    it 'change index 2 from " " to "O"' do
+      inport_board = Board.new
+      inport_board.change_index(2, 'O')
+      expect(inport_board.board).to eq([' ', ' ', 'O', ' ', ' ', ' ', ' ', ' ', ' '])
+    end
+    it 'change index 3 from " " to "X"' do
+      inport_board = Board.new
+      inport_board.change_index(3, 'X')
+      expect(inport_board.board).to eq([' ', ' ', ' ', 'X', ' ', ' ', ' ', ' ', ' '])
+    end
+    it 'change index 3 from " " to "O"' do
+      inport_board = Board.new
+      inport_board.change_index(3, 'O')
+      expect(inport_board.board).to eq([' ', ' ', ' ', 'O', ' ', ' ', ' ', ' ', ' '])
+    end
 
-#   let(:board) { Board.new }
+    it 'change index 4 from " " to "X"' do
+      inport_board = Board.new
+      inport_board.change_index(4, 'X')
+      expect(inport_board.board).to eq([' ', ' ', ' ', ' ', 'X', ' ', ' ', ' ', ' '])
+    end
+    it 'change index 4 from " " to "O"' do
+      inport_board = Board.new
+      inport_board.change_index(4, 'O')
+      expect(inport_board.board).to eq([' ', ' ', ' ', ' ', 'O', ' ', ' ', ' ', ' '])
+    end
+    it 'change index 5 from " " to "X"' do
+      inport_board = Board.new
+      inport_board.change_index(5, 'X')
+      expect(inport_board.board).to eq([' ', ' ', ' ', ' ', ' ', 'X', ' ', ' ', ' '])
+    end
+    it 'change index 5 from " " to "O"' do
+      inport_board = Board.new
+      inport_board.change_index(5, 'O')
+      expect(inport_board.board).to eq([' ', ' ', ' ', ' ', ' ', 'O', ' ', ' ', ' '])
+    end
+    it 'change index 6 from " " to "X"' do
+      inport_board = Board.new
+      inport_board.change_index(6, 'X')
+      expect(inport_board.board).to eq([' ', ' ', ' ', ' ', ' ', ' ', 'X', ' ', ' '])
+    end
+    it 'change index 6 from " " to "O"' do
+      inport_board = Board.new
+      inport_board.change_index(6, 'O')
+      expect(inport_board.board).to eq([' ', ' ', ' ', ' ', ' ', ' ', 'O', ' ', ' '])
+    end
+    it 'change index 7 from " " to "X"' do
+      inport_board = Board.new
+      inport_board.change_index(7, 'X')
+      expect(inport_board.board).to eq([' ', ' ', ' ', ' ', ' ', ' ', ' ', 'X', ' '])
+    end
+    it 'change index 7 from " " to "O"' do
+      inport_board = Board.new
+      inport_board.change_index(7, 'O')
+      expect(inport_board.board).to eq([' ', ' ', ' ', ' ', ' ', ' ', ' ', 'O', ' '])
+    end
+    it 'change index 8 from " " to "X"' do
+      inport_board = Board.new
+      inport_board.change_index(8, 'X')
+      expect(inport_board.board).to eq([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'X'])
+    end
+    it 'change index 8 from " " to "O"' do
+      inport_board = Board.new
+      inport_board.change_index(8, 'O')
+      expect(inport_board.board).to eq([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'O'])
+    end
+  end
 
-#   describe 'when initialized' do
-#     context 'it first' do
-#       it 'creates an instance array' do
-#         expect(board.board).to be_an_instance_of(Array)
-#       end
-#     end
-#     it 'creates the board' do
-#       expect(board.board).to eq(@board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
-#     end
-
-#     describe '.change_index' do
-#       it 'change index' do
-#         input = Board.new
-#         p X = input.change_index(5, 'x')
-#         p Y = board
-#         p input.instance_variable_get(:@board)
-#         expect(X).not_to eq(Y)
-#       end
-#     end
-
-#     describe '.position_taken?' do
-#       it 'will check if position was taken' do
-#         inport_board = Board.new
-#         inport_board.change_index(5, 'O')
-#         expect(inport_board.position_taken?(5)).to be true
-#       end
-#     end
-#   end
-# end
+  describe '.position_taken?' do
+    it 'will check if position was taken' do
+      inport_board = Board.new
+      inport_board.change_index(7, 'O')
+      expect(inport_board.position_taken?(7)).to be true
+    end
+  end
+end
