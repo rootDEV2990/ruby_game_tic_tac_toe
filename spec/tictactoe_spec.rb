@@ -1,11 +1,24 @@
-# require './bin/main.rb'
 require './lib/board.rb'
 require './lib/player.rb'
 require './lib/game.rb'
 
+describe './bin/main' do
+  it 'prints "Welcome to Tic Tac Toe!"' do
+    allow($stdout).to receive(:puts)
+  end
+
+  it 'calls #play passing in the board array' do
+    allow($stdout).to receive(:puts)
+  end
+
+  it 'asks for players input on a turn of the game' do
+    allow($stdout).to receive(:puts)
+  end
+end
+
 describe Board do
   describe '.initialize' do
-    it 'produces a board with nine spaces' do
+    it 'create a board with 9 spaces' do
       inport_board = Board.new
       expect(inport_board.board.length).to eql(9)
     end
@@ -115,17 +128,22 @@ end
 
 describe Player do
   it 'checks player name' do
-    inport_names = Player.new('miguel')
+    inport_names = Player.new('someone')
     names = inport_names.instance_variable_get(:@name)
-    expect(names).to eq('miguel')
+    expect(names).to eq('someone')
+  end
+  it 'checks name of players' do
+    input = Player.new('someone')
+    name = input.instance_variable_get(:@name)
+    expect(name).to be_a String
   end
 end
 
 describe Game do
   describe '.check_if_won' do
-    it 'Checks that winner var is not empty' do
-      @name1 = 'miguel'
-      @name2 = 'cal'
+    it 'Checks that winner is not empty' do
+      @name1 = 'someone'
+      @name2 = 'someone'
       rewrite_board = %w[X X X O 5 6 7 8 9]
 
       board = Board.new
@@ -133,14 +151,14 @@ describe Game do
       player1 = Player.new(@name1)
       player2 = Player.new(@name2)
       game = Game.new(player1, player2, board)
-      expect(game.check_if_won(player1)).to eql('miguel')
+      expect(game.check_if_won(player1)).to eql('someone')
     end
   end
 
   describe '.draw?' do
     it 'Checks if winner is empty and moves are full' do
-      @name1 = 'miguel'
-      @name2 = 'cal'
+      @name1 = 'someone'
+      @name2 = 'someone'
       rewrite_board = %w[X O X O X X O X O]
       board = Board.new
       board.board = rewrite_board
